@@ -16,7 +16,6 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErroResposta> naoEncontrado(RecursoNaoEncontradoException ex) {
         return montar(HttpStatus.NOT_FOUND, ex.getMessage(), List.of());
     }
-}
 
 @ExceptionHandler(RegraNegocioException.class)
 public ResponseEntity<ErroResposta> regraNegocio(RegraNegocioException ex) {
@@ -35,4 +34,5 @@ private ResponseEntity<ErroResposta> montar(
     HttpStatus status, String erro, List<String> detalhes) {
     return ResponseEntity.status(status)
         .body(new ErroResposta(LocalDateTime.now(), status.value(), erro, detalhes));
+}
 }
