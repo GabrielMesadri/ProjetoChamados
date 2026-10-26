@@ -9,7 +9,7 @@ public record ClienteRequest(
     @Size(max = 100, message ="Nome dever ter no maximo 100 caracteres")
     String nome,
     
-    @NotBlank (message= "Nome é obrigatório")
+    @NotBlank (message= "E-mail é obrigatório")
     @Email(message = "E-mail inválido")
     String email,
 
